@@ -1,0 +1,30 @@
+<div class="product">
+<!--  <div class="product__image" *ngIf="product-card.image">-->
+<!--    <img src="assets/images/products/{{ product-card.image }}">-->
+<!--  </div>-->
+
+<!--  <div class="product__image" *ngIf="!product-card.image">-->
+<!--    <img src="assets/images/pizzzzza.png">-->
+<!--  </div>-->
+
+  <div class="product__image" *ngIf="product.image; else defaultImageBlock">
+    <img src="{{ product.image }}">
+  </div>
+
+
+  <ng-template #defaultImageBlock>
+    <div class="product__image">
+      <img src="../../../../assets/images/pizzzzza.png">
+    </div>
+  </ng-template>
+
+
+  <custom-title [title]="product.title | uppercase" #customTitle></custom-title>
+
+  <div class="product__text">{{ product.description | wordUpper:['сыр', 'томат', 'бекон'] }}</div>
+  <div class="product__action" #productAction>
+    <a class="btn product__btn btn-add-to-cart" routerLink="/order" [queryParams]="{product: product.title}">В корзину</a>
+    <a class="btn product__btn_white" [routerLink]="['/products', product.id]" >Подробнее</a>
+  </div>
+<!--  <div>{{ product-card.datetime | date:'full'}}</div>-->
+</div>

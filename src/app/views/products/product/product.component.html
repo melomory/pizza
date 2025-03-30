@@ -1,0 +1,24 @@
+<section class="product">
+  <div class="container">
+    <h2 class="product__title">Описание пиццы</h2>
+    <div class="product__item">
+
+      <ng-template>
+        <div class="product__image">
+          <img src="{{ product.image }}">
+        </div>
+      </ng-template>
+
+
+      <!-- <custom-title [title]="product.title | uppercase" #customTitle></custom-title> -->
+
+      <div class="product__text">{{ product.description }}</div>
+      <div class="product__action" #productAction>
+        <a class="btn product__btn btn-add-to-cart" routerLink="/order" queryParams="{product: product.title}">В
+          корзину</a>
+      </div>
+
+
+    </div>
+  </div>
+</section>

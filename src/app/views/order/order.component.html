@@ -1,0 +1,74 @@
+<section class="order" id="order">
+  <div class="container order__container">
+    <div class="order__text">
+      <div class="double-title order__double-title">
+        <a
+          routerLink="/order"
+          [queryParams]="{ product: formValues.productTitle + '1 ' }"
+          class="double-title__span"
+          >Хватит думать!</a
+        >
+        Доставим заказ за 30 минут!
+      </div>
+      <div class="order__text-message" (click)="test()">
+        Мы гарантированно доставим вашу пиццу за 30 минут с момента оформления
+        заказа. Если мы опоздаем даже на 1 минуту - вы получаете весь заказ
+        бесплатно и ваучер на скидку на следующий заказ. Мы гордимся нашим
+        сервисом и сделаем всё, чтобы наш клиент был доволен и не остался
+        голодный!
+      </div>
+    </div>
+    <form class="order__form">
+      <span class="p-float-label">
+        <input
+          type="text"
+          class="base-input order__base-input"
+          coolInput
+          pInputText
+          id="product-input"
+          [(ngModel)]="formValues.productTitle"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <label for="product-input">Пицца</label>
+      </span>
+
+      <span class="p-float-label">
+        <input
+          type="text"
+          class="base-input order__base-input"
+          pInputText
+          id="address-input"
+          name="address"
+          [(ngModel)]="formValues.address"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <label for="address-input">Адрес доставки</label>
+      </span>
+
+      <span class="p-float-label">
+        <input
+          type="tel"
+          class="base-input order__base-input"
+          pInputText
+          id="phone-input"
+          pattern="^\+7\s\(9\d{2}\)\s\d{3}-\d{2}-\d{2}$"
+          required
+          [(ngModel)]="formValues.phone"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <label for="phone-input">Телефон +7 (999) 999-99-99</label>
+      </span>
+
+      <button class="btn order__btn" tuiButton (click)="createOrder()">
+        Оформить заказ
+      </button>
+    </form>
+    <div class="order__image">
+      <img
+        src="../../../assets/images/pizzzzza.png"
+        alt="Кусочек пиццы"
+        class="order__image-img"
+      />
+    </div>
+  </div>
+</section>
